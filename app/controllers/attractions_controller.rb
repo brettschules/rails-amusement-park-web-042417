@@ -1,5 +1,6 @@
 class AttractionsController < ApplicationController
   before_action :is_admin?, only: [:new, :create, :edit, :update, :delete]
+  before_action :logged_in
 
 
 

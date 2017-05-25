@@ -8,9 +8,22 @@
 <% end %>
 
 
-<% @attractions.each do |a| %>
-<%= a.name %> <%= a.tickets %>
-<%= link_to "#{action_verb} #{a.name}", attraction_path(a) %><br>
-<% end %>
+<table class="table table-hover">
+  <col width="200">
+  <col width="200">
+  <col width="200">
+  <tr>
+    <th>Attractions</th>
+    <th>Tickets</th>
+    <th>GO!</th>
+  </tr>
+  <% @attractions.each do |a| %>
+  <tr>
+    <td><%= a.name %></td>
+    <td><%= a.tickets %></td>
+    <td><%= link_to "#{action_verb} #{a.name}", attraction_path(a) %><br></td>
+  </tr>
+  <% end %>
+</table>
 
 <%= link_to "New Attraction", new_attraction_path %>

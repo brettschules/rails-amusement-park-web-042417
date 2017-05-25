@@ -1,9 +1,30 @@
-<% if @user.admin %>
-ADMIN
-<% end %>
-Name: <%= @user.name %>
-Tickets: <%= @user.tickets %>
-Mood: <%= @user.mood %>
-Height: <%= @user.height %>
-<%= link_to "Edit", edit_user_path %>
-<%= link_to "See attractions", attractions_path %>
+<div>
+
+  <% if @user.admin %>
+  <h2>ADMIN</h2>
+  <% end %>
+
+  <table>
+    <col width="80">
+    <col width="130">
+    <tr>
+       <td>Name:</td>
+       <td><%= @user.name %></td>
+    </tr>
+    <tr>
+       <td>Tickets:</td>
+       <td><%= @user.tickets %></td>
+    </tr>
+    <tr>
+       <td>Mood:</td>
+       <td><%= @user.mood %></td>
+    </tr>
+    <tr>
+       <td>Height:</td>
+       <td><%= @user.height %></td>
+    </tr>
+  </table>
+  <br>
+  <%= link_to "Edit", edit_user_path %> &nbsp; &nbsp;
+  <%= link_to "See attractions", attractions_path %>
+</div>
