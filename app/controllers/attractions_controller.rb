@@ -2,8 +2,6 @@ class AttractionsController < ApplicationController
   before_action :is_admin?, only: [:new, :create, :edit, :update, :delete]
   before_action :logged_in
 
-
-
   def index
     @attractions = Attraction.all
   end
@@ -17,7 +15,7 @@ class AttractionsController < ApplicationController
     if @attraction.save
       redirect_to attraction_path(@attraction)
     else
-      flash.now[:error] = "Invalid"
+      flash.now[:warning] = "Invalid"
       render :new
     end
   end
@@ -46,7 +44,7 @@ class AttractionsController < ApplicationController
     if user.admin
 
     else
-      flash.now.alert = "Not admin"
+      flash[:danger] = "NOPE"
       redirect_to attractions_path
     end
   end

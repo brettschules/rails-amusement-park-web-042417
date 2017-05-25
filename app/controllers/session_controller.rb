@@ -9,7 +9,7 @@ class SessionController < ApplicationController
       session[:user_id] = user.id
       redirect_to user_path(user)
     else
-      flash[:alert] = "Invalid user/password"
+      flash[:warning] = "Invalid user/password"
       render :new
     end
   end

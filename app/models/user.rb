@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
 
   has_secure_password
 
+  validates :name, :height, :nausea, :happiness, :tickets, presence: true
+
   def mood
      nausea > happiness ? "sad" : "happy"
   end

@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :logged_in, only: :show
+  before_action :logged_in, only: [:show, :edit, :update]
 
   def index
   end
@@ -15,7 +15,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
-      flash.now[:error] = "Invalid"
+      flash.now[:warning] = "Invalid"
       render :new
     end
   end
@@ -33,7 +33,7 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       redirect_to @user
     else
-      flash.now[:error] = "Invalid"
+      flash.now[:warning] = "Invalid"
       render :edit
     end
   end
