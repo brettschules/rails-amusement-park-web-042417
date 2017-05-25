@@ -2,3 +2,6 @@
 <%= @attraction.name %>
 <%= @attraction.tickets %>
 <%= button_to "Go on this ride", rides_path %>
+<% if check_if_admin? %>
+<%= link_to "Edit Attraction", edit_attraction_path(@attraction) %>
+<% end %>

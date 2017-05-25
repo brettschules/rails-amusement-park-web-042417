@@ -1,8 +1,16 @@
 <h1>Attractions</h1>
 
+<% action_verb = "" %>
+<% if check_if_admin? %>
+<% action_verb = "Show" %>
+<% else %>
+<% action_verb = "Go on" %>
+<% end %>
+
+
 <% @attractions.each do |a| %>
 <%= a.name %> <%= a.tickets %>
-<%= link_to "Go on #{a.name}", attraction_path(a) %><br>
+<%= link_to "#{action_verb} #{a.name}", attraction_path(a) %><br>
 <% end %>
 
 <%= link_to "New Attraction", new_attraction_path %>
